@@ -6,10 +6,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/melodiez14/meiko/src/module/bot"
-	cs "github.com/melodiez14/meiko/src/module/course"
-	fl "github.com/melodiez14/meiko/src/module/file"
-	"github.com/melodiez14/meiko/src/util/helper"
+	"github.com/asepnur/meiko_bot/src/module/bot"
+	cs "github.com/asepnur/meiko_bot/src/module/course"
+	fl "github.com/asepnur/meiko_bot/src/module/file"
+	"github.com/asepnur/meiko_bot/src/util/helper"
 )
 
 func handleAssistant(text string, userID int64) ([]map[string]interface{}, error) {
@@ -102,13 +102,8 @@ func handleInformation(text string, userID int64) ([]map[string]interface{}, err
 	filterCoursesLen := len(filterCourses)
 	filterCoursesRgx := regexp.MustCompile(strings.Join(filterCourses, "|"))
 
-	scheduleID, err := cs.SelectScheduleIDByUserID(userID, cs.PStatusStudent)
-	if err != nil {
-		return args, nil
-	}
-
 	// select courses details by scheduleID
-	courses, err := cs.SelectByScheduleID(scheduleID, cs.StatusScheduleActive)
+	courses, err := cs.SelectEnrolledSchedule(userID)
 	if err != nil {
 		return args, nil
 	}

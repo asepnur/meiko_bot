@@ -10,12 +10,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/melodiez14/meiko/src/util/helper"
+	"github.com/asepnur/meiko_bot/src/util/helper"
 
+	"github.com/asepnur/meiko_bot/src/util/conn"
+	"github.com/asepnur/meiko_bot/src/webserver/template"
 	"github.com/garyburd/redigo/redis"
 	"github.com/julienschmidt/httprouter"
-	"github.com/melodiez14/meiko/src/util/conn"
-	"github.com/melodiez14/meiko/src/webserver/template"
 )
 
 type (

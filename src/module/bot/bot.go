@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/melodiez14/meiko/src/util/helper"
+	"github.com/asepnur/meiko_bot/src/util/helper"
 
-	"github.com/melodiez14/meiko/src/util/conn"
+	"github.com/asepnur/meiko_bot/src/util/conn"
 )
 
 func GetIntent(text string) (string, error) {

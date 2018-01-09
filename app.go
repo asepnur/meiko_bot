@@ -5,13 +5,13 @@ import (
 	"log"
 	"runtime"
 
-	"github.com/melodiez14/meiko/src/util/alias"
-	"github.com/melodiez14/meiko/src/util/auth"
-	"github.com/melodiez14/meiko/src/util/conn"
-	"github.com/melodiez14/meiko/src/util/env"
-	"github.com/melodiez14/meiko/src/util/jsonconfig"
-	"github.com/melodiez14/meiko/src/webserver"
-	"github.com/melodiez14/meiko/src/webserver/handler/bot"
+	"github.com/asepnur/meiko_bot/src/util/alias"
+	"github.com/asepnur/meiko_bot/src/util/auth"
+	"github.com/asepnur/meiko_bot/src/util/conn"
+	"github.com/asepnur/meiko_bot/src/util/env"
+	"github.com/asepnur/meiko_bot/src/util/jsonconfig"
+	"github.com/asepnur/meiko_bot/src/webserver"
+	"github.com/asepnur/meiko_bot/src/webserver/handler/bot"
 )
 
 type configuration struct {
