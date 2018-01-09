@@ -17,7 +17,6 @@ import (
 type configuration struct {
 	Directory alias.DirectoryConfig `json:"directory"`
 	Database  conn.DatabaseConfig   `json:"database"`
-	Redis     conn.RedisConfig      `json:"redis"`
 	Webserver webserver.Config      `json:"webserver"`
 	Auth      auth.Config           `json:"auth"`
 }
@@ -40,7 +39,6 @@ func main() {
 	// initiate instance
 	alias.InitDirectory(config.Directory)
 	conn.InitDB(config.Database)
-	conn.InitRedis(config.Redis)
 	bot.Init()
 	auth.Init(config.Auth)
 	webserver.Start(config.Webserver)

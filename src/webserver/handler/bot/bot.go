@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/asepnur/meiko_bot/src/module/bot"
-	"github.com/asepnur/meiko_bot/src/module/log"
 	"github.com/asepnur/meiko_bot/src/util/auth"
 	"github.com/asepnur/meiko_bot/src/util/conn"
 	"github.com/asepnur/meiko_bot/src/webserver/template"
@@ -65,7 +64,7 @@ func BotHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		return
 	}
 
-	_, err = log.Insert(args.Text, sess.ID, bot.StatusUser, tx)
+	_, err = bot.Insert(args.Text, sess.ID, bot.StatusUser, tx)
 	if err != nil {
 		tx.Rollback()
 		template.RenderJSONResponse(w, new(template.Response).
@@ -73,7 +72,7 @@ func BotHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 		return
 	}
 
-	lastInsertID, err := log.Insert(jsnStr, sess.ID, bot.StatusBot, tx)
+	lastInsertID, err := bot.Insert(jsnStr, sess.ID, bot.StatusBot, tx)
 	if err != nil {
 		tx.Rollback()
 		template.RenderJSONResponse(w, new(template.Response).
